@@ -1,4 +1,4 @@
-![Screenshot](/images/screenshot.png "NewtonInspector Screenshot")
+![Screenshot](/images/screenshot.png?raw=true "NewtonInspector Screenshot")
 
 Disclaimer
 ----------
