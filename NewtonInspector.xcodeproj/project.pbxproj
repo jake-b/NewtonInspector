@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2303B53E1AF452740006D6CA /* InspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2303B53D1AF452740006D6CA /* InspectorViewController.m */; };
+		230A94851AF6484E004C1352 /* libnewt_x86-32.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A94841AF6484E004C1352 /* libnewt_x86-32.a */; };
+		230AD38E1AF7ECD1008BCE6A /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 230AD38D1AF7ECD1008BCE6A /* camera.png */; };
+		230AD3901AF7F8CB008BCE6A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230AD38F1AF7F8CB008BCE6A /* QuartzCore.framework */; };
+		2341B3331AF94EF40013B2BC /* package.png in Resources */ = {isa = PBXBuildFile; fileRef = 2341B3311AF94EF40013B2BC /* package.png */; };
+		2341B3341AF94EF40013B2BC /* watching.png in Resources */ = {isa = PBXBuildFile; fileRef = 2341B3321AF94EF40013B2BC /* watching.png */; };
+		235E4C931AF3AC5300BB5D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 235E4C921AF3AC5300BB5D82 /* AppDelegate.m */; };
+		235E4C951AF3AC5300BB5D82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 235E4C941AF3AC5300BB5D82 /* main.m */; };
+		235E4C9A1AF3AC5300BB5D82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235E4C991AF3AC5300BB5D82 /* Images.xcassets */; };
+		235E4C9D1AF3AC5300BB5D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235E4C9B1AF3AC5300BB5D82 /* Main.storyboard */; };
+		235E4CBA1AF3B28C00BB5D82 /* NewtonConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 235E4CB41AF3B28C00BB5D82 /* NewtonConnection.m */; };
+		235E4CBC1AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = 235E4CB61AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.c */; };
+		235E4CBD1AF3B28C00BB5D82 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 235E4CB81AF3B28C00BB5D82 /* TPCircularBuffer.c */; };
+		235E4CC41AF3B4F300BB5D82 /* NewtonInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 235E4CC31AF3B4F300BB5D82 /* NewtonInspector.m */; };
+		23A353041AF3CA8800D35C4D /* button_install.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A353031AF3CA8800D35C4D /* button_install.png */; };
+		23A353061AF40C4E00D35C4D /* box_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A353051AF40C4E00D35C4D /* box_closed.png */; };
+		23A353081AF40C5A00D35C4D /* box_opened.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A353071AF40C5A00D35C4D /* box_opened.png */; };
+		23A353391AF44BFC00D35C4D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A353381AF44BFC00D35C4D /* libiconv.dylib */; };
+		23E409F81AFD282D00D84832 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E409F71AFD282D00D84832 /* icon.png */; };
+		23E409FC1AFD3E8600D84832 /* Clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E409FB1AFD3E8600D84832 /* Clear.png */; };
+		23E40A1C1AFD3F7400D84832 /* NewtConf.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 23E40A031AFD3F7400D84832 /* NewtConf.h.in */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23D62EDD1AF5065D00520EC0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2303B53C1AF452740006D6CA /* InspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorViewController.h; sourceTree = "<group>"; };
+		2303B53D1AF452740006D6CA /* InspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectorViewController.m; sourceTree = "<group>"; };
+		230A94841AF6484E004C1352 /* libnewt_x86-32.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libnewt_x86-32.a"; sourceTree = "<group>"; };
+		230AD38D1AF7ECD1008BCE6A /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		230AD38F1AF7F8CB008BCE6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2341B3311AF94EF40013B2BC /* package.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = package.png; sourceTree = "<group>"; };
+		2341B3321AF94EF40013B2BC /* watching.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watching.png; sourceTree = "<group>"; };
+		235E4C8C1AF3AC5300BB5D82 /* NewtonInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewtonInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		235E4C901AF3AC5300BB5D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		235E4C911AF3AC5300BB5D82 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		235E4C921AF3AC5300BB5D82 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		235E4C941AF3AC5300BB5D82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		235E4C991AF3AC5300BB5D82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		235E4C9C1AF3AC5300BB5D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		235E4CB31AF3B28C00BB5D82 /* NewtonConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtonConnection.h; path = TPCircularBuffer/NewtonConnection.h; sourceTree = "<group>"; };
+		235E4CB41AF3B28C00BB5D82 /* NewtonConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewtonConnection.m; path = TPCircularBuffer/NewtonConnection.m; sourceTree = "<group>"; };
+		235E4CB51AF3B28C00BB5D82 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		235E4CB61AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+AudioBufferList.c"; sourceTree = "<group>"; };
+		235E4CB71AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+AudioBufferList.h"; sourceTree = "<group>"; };
+		235E4CB81AF3B28C00BB5D82 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		235E4CB91AF3B28C00BB5D82 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+		235E4CC21AF3B4F300BB5D82 /* NewtonInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtonInspector.h; sourceTree = "<group>"; };
+		235E4CC31AF3B4F300BB5D82 /* NewtonInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewtonInspector.m; sourceTree = "<group>"; };
+		23A353031AF3CA8800D35C4D /* button_install.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_install.png; sourceTree = "<group>"; };
+		23A353051AF40C4E00D35C4D /* box_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_closed.png; sourceTree = "<group>"; };
+		23A353071AF40C5A00D35C4D /* box_opened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_opened.png; sourceTree = "<group>"; };
+		23A353381AF44BFC00D35C4D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		23E409F71AFD282D00D84832 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		23E409FB1AFD3E8600D84832 /* Clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clear.png; sourceTree = "<group>"; };
+		23E409FF1AFD3F7400D84832 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		23E40A001AFD3F7400D84832 /* NewtConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtConf.h; sourceTree = "<group>"; };
+		23E40A011AFD3F7400D84832 /* NewtBC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtBC.h; path = Newt0_Includes/NewtBC.h; sourceTree = SOURCE_ROOT; };
+		23E40A021AFD3F7400D84832 /* NewtConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtConf.h; path = Newt0_Includes/NewtConf.h; sourceTree = SOURCE_ROOT; };
+		23E40A031AFD3F7400D84832 /* NewtConf.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NewtConf.h.in; path = Newt0_Includes/NewtConf.h.in; sourceTree = SOURCE_ROOT; };
+		23E40A041AFD3F7400D84832 /* NewtCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtCore.h; path = Newt0_Includes/NewtCore.h; sourceTree = SOURCE_ROOT; };
+		23E40A051AFD3F7400D84832 /* NewtEnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtEnv.h; path = Newt0_Includes/NewtEnv.h; sourceTree = SOURCE_ROOT; };
+		23E40A061AFD3F7400D84832 /* NewtErrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtErrs.h; path = Newt0_Includes/NewtErrs.h; sourceTree = SOURCE_ROOT; };
+		23E40A071AFD3F7400D84832 /* NewtFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtFile.h; path = Newt0_Includes/NewtFile.h; sourceTree = SOURCE_ROOT; };
+		23E40A081AFD3F7400D84832 /* NewtFns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtFns.h; path = Newt0_Includes/NewtFns.h; sourceTree = SOURCE_ROOT; };
+		23E40A091AFD3F7400D84832 /* NewtGC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtGC.h; path = Newt0_Includes/NewtGC.h; sourceTree = SOURCE_ROOT; };
+		23E40A0A1AFD3F7400D84832 /* NewtIconv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtIconv.h; path = Newt0_Includes/NewtIconv.h; sourceTree = SOURCE_ROOT; };
+		23E40A0B1AFD3F7400D84832 /* NewtIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtIO.h; path = Newt0_Includes/NewtIO.h; sourceTree = SOURCE_ROOT; };
+		23E40A0C1AFD3F7400D84832 /* NewtLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtLib.h; path = Newt0_Includes/NewtLib.h; sourceTree = SOURCE_ROOT; };
+		23E40A0D1AFD3F7400D84832 /* NewtMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtMem.h; path = Newt0_Includes/NewtMem.h; sourceTree = SOURCE_ROOT; };
+		23E40A0E1AFD3F7400D84832 /* NewtNSOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtNSOF.h; path = Newt0_Includes/NewtNSOF.h; sourceTree = SOURCE_ROOT; };
+		23E40A0F1AFD3F7400D84832 /* NewtObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtObj.h; path = Newt0_Includes/NewtObj.h; sourceTree = SOURCE_ROOT; };
+		23E40A111AFD3F7400D84832 /* Newton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newton.h; sourceTree = "<group>"; };
+		23E40A121AFD3F7400D84832 /* NewtonExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtonExceptions.h; sourceTree = "<group>"; };
+		23E40A131AFD3F7400D84832 /* NewtonMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtonMemory.h; sourceTree = "<group>"; };
+		23E40A141AFD3F7400D84832 /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
+		23E40A151AFD3F7400D84832 /* NewtParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtParser.h; path = Newt0_Includes/NewtParser.h; sourceTree = SOURCE_ROOT; };
+		23E40A161AFD3F7400D84832 /* NewtPkg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtPkg.h; path = Newt0_Includes/NewtPkg.h; sourceTree = SOURCE_ROOT; };
+		23E40A171AFD3F7400D84832 /* NewtPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtPrint.h; path = Newt0_Includes/NewtPrint.h; sourceTree = SOURCE_ROOT; };
+		23E40A181AFD3F7400D84832 /* NewtStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtStr.h; path = Newt0_Includes/NewtStr.h; sourceTree = SOURCE_ROOT; };
+		23E40A191AFD3F7400D84832 /* NewtType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtType.h; path = Newt0_Includes/NewtType.h; sourceTree = SOURCE_ROOT; };
+		23E40A1A1AFD3F7400D84832 /* NewtVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewtVM.h; path = Newt0_Includes/NewtVM.h; sourceTree = SOURCE_ROOT; };
+		23E40A1B1AFD3F7400D84832 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = platform.h; path = Newt0_Includes/platform.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		235E4C891AF3AC5300BB5D82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230AD3901AF7F8CB008BCE6A /* QuartzCore.framework in Frameworks */,
+				23A353391AF44BFC00D35C4D /* libiconv.dylib in Frameworks */,
+				230A94851AF6484E004C1352 /* libnewt_x86-32.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		235E4C831AF3AC5300BB5D82 = {
+			isa = PBXGroup;
+			children = (
+				23A3530B1AF4491100D35C4D /* iNewt Includes */,
+				235E4CBE1AF3B29800BB5D82 /* Newton Connectivity */,
+				235E4C8E1AF3AC5300BB5D82 /* NewtonInspector */,
+				235E4CB21AF3B28C00BB5D82 /* TPCircularBuffer */,
+				23E409FA1AFD3E4200D84832 /* Resources */,
+				23E409FD1AFD3EE100D84832 /* Libraries */,
+				235E4C8D1AF3AC5300BB5D82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		235E4C8D1AF3AC5300BB5D82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				235E4C8C1AF3AC5300BB5D82 /* NewtonInspector.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		235E4C8E1AF3AC5300BB5D82 /* NewtonInspector */ = {
+			isa = PBXGroup;
+			children = (
+				235E4C911AF3AC5300BB5D82 /* AppDelegate.h */,
+				235E4C921AF3AC5300BB5D82 /* AppDelegate.m */,
+				2303B53C1AF452740006D6CA /* InspectorViewController.h */,
+				2303B53D1AF452740006D6CA /* InspectorViewController.m */,
+				235E4C991AF3AC5300BB5D82 /* Images.xcassets */,
+				235E4C9B1AF3AC5300BB5D82 /* Main.storyboard */,
+				235E4C8F1AF3AC5300BB5D82 /* Supporting Files */,
+			);
+			path = NewtonInspector;
+			sourceTree = "<group>";
+		};
+		235E4C8F1AF3AC5300BB5D82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				235E4C901AF3AC5300BB5D82 /* Info.plist */,
+				235E4C941AF3AC5300BB5D82 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		235E4CB21AF3B28C00BB5D82 /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				235E4CB51AF3B28C00BB5D82 /* README.markdown */,
+				235E4CB61AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.c */,
+				235E4CB71AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.h */,
+				235E4CB81AF3B28C00BB5D82 /* TPCircularBuffer.c */,
+				235E4CB91AF3B28C00BB5D82 /* TPCircularBuffer.h */,
+			);
+			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+		235E4CBE1AF3B29800BB5D82 /* Newton Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				235E4CB31AF3B28C00BB5D82 /* NewtonConnection.h */,
+				235E4CB41AF3B28C00BB5D82 /* NewtonConnection.m */,
+				235E4CC21AF3B4F300BB5D82 /* NewtonInspector.h */,
+				235E4CC31AF3B4F300BB5D82 /* NewtonInspector.m */,
+			);
+			name = "Newton Connectivity";
+			sourceTree = "<group>";
+		};
+		23A3530B1AF4491100D35C4D /* iNewt Includes */ = {
+			isa = PBXGroup;
+			children = (
+				23E409FE1AFD3F7400D84832 /* darwin */,
+				23E40A011AFD3F7400D84832 /* NewtBC.h */,
+				23E40A021AFD3F7400D84832 /* NewtConf.h */,
+				23E40A031AFD3F7400D84832 /* NewtConf.h.in */,
+				23E40A041AFD3F7400D84832 /* NewtCore.h */,
+				23E40A051AFD3F7400D84832 /* NewtEnv.h */,
+				23E40A061AFD3F7400D84832 /* NewtErrs.h */,
+				23E40A071AFD3F7400D84832 /* NewtFile.h */,
+				23E40A081AFD3F7400D84832 /* NewtFns.h */,
+				23E40A091AFD3F7400D84832 /* NewtGC.h */,
+				23E40A0A1AFD3F7400D84832 /* NewtIconv.h */,
+				23E40A0B1AFD3F7400D84832 /* NewtIO.h */,
+				23E40A0C1AFD3F7400D84832 /* NewtLib.h */,
+				23E40A0D1AFD3F7400D84832 /* NewtMem.h */,
+				23E40A0E1AFD3F7400D84832 /* NewtNSOF.h */,
+				23E40A0F1AFD3F7400D84832 /* NewtObj.h */,
+				23E40A101AFD3F7400D84832 /* Newton */,
+				23E40A151AFD3F7400D84832 /* NewtParser.h */,
+				23E40A161AFD3F7400D84832 /* NewtPkg.h */,
+				23E40A171AFD3F7400D84832 /* NewtPrint.h */,
+				23E40A181AFD3F7400D84832 /* NewtStr.h */,
+				23E40A191AFD3F7400D84832 /* NewtType.h */,
+				23E40A1A1AFD3F7400D84832 /* NewtVM.h */,
+				23E40A1B1AFD3F7400D84832 /* platform.h */,
+			);
+			name = "iNewt Includes";
+			path = incs;
+			sourceTree = "<group>";
+		};
+		23E409FA1AFD3E4200D84832 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23E409FB1AFD3E8600D84832 /* Clear.png */,
+				23A353031AF3CA8800D35C4D /* button_install.png */,
+				230AD38D1AF7ECD1008BCE6A /* camera.png */,
+				2341B3311AF94EF40013B2BC /* package.png */,
+				2341B3321AF94EF40013B2BC /* watching.png */,
+				23A353051AF40C4E00D35C4D /* box_closed.png */,
+				23E409F71AFD282D00D84832 /* icon.png */,
+				23A353071AF40C5A00D35C4D /* box_opened.png */,
+			);
+			name = Resources;
+			path = NewtonInspector;
+			sourceTree = "<group>";
+		};
+		23E409FD1AFD3EE100D84832 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				23A353381AF44BFC00D35C4D /* libiconv.dylib */,
+				230AD38F1AF7F8CB008BCE6A /* QuartzCore.framework */,
+				230A94841AF6484E004C1352 /* libnewt_x86-32.a */,
+			);
+			name = Libraries;
+			path = NewtonInspector;
+			sourceTree = "<group>";
+		};
+		23E409FE1AFD3F7400D84832 /* darwin */ = {
+			isa = PBXGroup;
+			children = (
+				23E409FF1AFD3F7400D84832 /* config.h */,
+				23E40A001AFD3F7400D84832 /* NewtConf.h */,
+			);
+			name = darwin;
+			path = Newt0_Includes/darwin;
+			sourceTree = SOURCE_ROOT;
+		};
+		23E40A101AFD3F7400D84832 /* Newton */ = {
+			isa = PBXGroup;
+			children = (
+				23E40A111AFD3F7400D84832 /* Newton.h */,
+				23E40A121AFD3F7400D84832 /* NewtonExceptions.h */,
+				23E40A131AFD3F7400D84832 /* NewtonMemory.h */,
+				23E40A141AFD3F7400D84832 /* Objects.h */,
+			);
+			name = Newton;
+			path = Newt0_Includes/Newton;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		235E4C8B1AF3AC5300BB5D82 /* NewtonInspector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 235E4CAC1AF3AC5300BB5D82 /* Build configuration list for PBXNativeTarget "NewtonInspector" */;
+			buildPhases = (
+				235E4C881AF3AC5300BB5D82 /* Sources */,
+				235E4C891AF3AC5300BB5D82 /* Frameworks */,
+				235E4C8A1AF3AC5300BB5D82 /* Resources */,
+				23D62EDD1AF5065D00520EC0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NewtonInspector;
+			productName = NewtonInspector;
+			productReference = 235E4C8C1AF3AC5300BB5D82 /* NewtonInspector.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		235E4C841AF3AC5300BB5D82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = allaboutjake;
+				TargetAttributes = {
+					235E4C8B1AF3AC5300BB5D82 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 235E4C871AF3AC5300BB5D82 /* Build configuration list for PBXProject "NewtonInspector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 235E4C831AF3AC5300BB5D82;
+			productRefGroup = 235E4C8D1AF3AC5300BB5D82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				235E4C8B1AF3AC5300BB5D82 /* NewtonInspector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		235E4C8A1AF3AC5300BB5D82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2341B3331AF94EF40013B2BC /* package.png in Resources */,
+				23E409FC1AFD3E8600D84832 /* Clear.png in Resources */,
+				2341B3341AF94EF40013B2BC /* watching.png in Resources */,
+				235E4C9A1AF3AC5300BB5D82 /* Images.xcassets in Resources */,
+				23A353041AF3CA8800D35C4D /* button_install.png in Resources */,
+				23E40A1C1AFD3F7400D84832 /* NewtConf.h.in in Resources */,
+				23E409F81AFD282D00D84832 /* icon.png in Resources */,
+				235E4C9D1AF3AC5300BB5D82 /* Main.storyboard in Resources */,
+				23A353081AF40C5A00D35C4D /* box_opened.png in Resources */,
+				230AD38E1AF7ECD1008BCE6A /* camera.png in Resources */,
+				23A353061AF40C4E00D35C4D /* box_closed.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		235E4C881AF3AC5300BB5D82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				235E4CBD1AF3B28C00BB5D82 /* TPCircularBuffer.c in Sources */,
+				235E4CBA1AF3B28C00BB5D82 /* NewtonConnection.m in Sources */,
+				235E4C951AF3AC5300BB5D82 /* main.m in Sources */,
+				235E4C931AF3AC5300BB5D82 /* AppDelegate.m in Sources */,
+				235E4CC41AF3B4F300BB5D82 /* NewtonInspector.m in Sources */,
+				235E4CBC1AF3B28C00BB5D82 /* TPCircularBuffer+AudioBufferList.c in Sources */,
+				2303B53E1AF452740006D6CA /* InspectorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		235E4C9B1AF3AC5300BB5D82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				235E4C9C1AF3AC5300BB5D82 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		235E4CAA1AF3AC5300BB5D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		235E4CAB1AF3AC5300BB5D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		235E4CAD1AF3AC5300BB5D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NewtonInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NewtonInspector",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		235E4CAE1AF3AC5300BB5D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NewtonInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NewtonInspector",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		235E4C871AF3AC5300BB5D82 /* Build configuration list for PBXProject "NewtonInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				235E4CAA1AF3AC5300BB5D82 /* Debug */,
+				235E4CAB1AF3AC5300BB5D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		235E4CAC1AF3AC5300BB5D82 /* Build configuration list for PBXNativeTarget "NewtonInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				235E4CAD1AF3AC5300BB5D82 /* Debug */,
+				235E4CAE1AF3AC5300BB5D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 235E4C841AF3AC5300BB5D82 /* Project object */;
+}
