@@ -13,6 +13,10 @@ This is released under GPL 3.0
 Introduction
 ------------
 
+** Note: Current version is hard coded to /dev/usbserial if you're Newotn is not connected on this
+serial device, then (a) create a symlink (b) edit the code before compiling (c) send a pull request
+withh a UI to select your serial port! **
+
 This is a Mac OS X native implementation of the "Inspector" window of the Newton Toolkit.
 
 The inspector was a debugging tool which allows you to see print statements, interrogate objects,
