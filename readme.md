@@ -10,6 +10,12 @@ License
 -------
 This is released under GPL 3.0
 
+Requirements
+------------
+
+- Mac OS X 10.7 (Lion) 
+- USB Serial adapter connected on /dev/usbserial
+
 Introduction
 ------------
 
