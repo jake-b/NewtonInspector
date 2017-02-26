@@ -17,6 +17,7 @@
 		235E4C951AF3AC5300BB5D82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 235E4C941AF3AC5300BB5D82 /* main.m */; };
 		235E4C9A1AF3AC5300BB5D82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235E4C991AF3AC5300BB5D82 /* Images.xcassets */; };
 		235E4C9D1AF3AC5300BB5D82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235E4C9B1AF3AC5300BB5D82 /* Main.storyboard */; };
+		2373F08D1E588675000976CD /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2373F08B1E588675000976CD /* NSFileManager+DirectoryLocations.m */; };
 		237B3BC41AFE4FB100830810 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = 237B3BBF1AFE4FB100830810 /* TPCircularBuffer+AudioBufferList.c */; };
 		237B3BC61AFE4FB100830810 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 237B3BC11AFE4FB100830810 /* TPCircularBuffer.c */; };
 		237B3BCB1AFE4FC300830810 /* NewtonConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 237B3BC81AFE4FC300830810 /* NewtonConnection.m */; };
@@ -57,6 +58,8 @@
 		235E4C941AF3AC5300BB5D82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		235E4C991AF3AC5300BB5D82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		235E4C9C1AF3AC5300BB5D82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2373F08B1E588675000976CD /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		2373F08C1E588675000976CD /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		237B3BBF1AFE4FB100830810 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+AudioBufferList.c"; sourceTree = "<group>"; };
 		237B3BC11AFE4FB100830810 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		237B3BC21AFE4FB100830810 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		235E4C831AF3AC5300BB5D82 = {
 			isa = PBXGroup;
 			children = (
+				2373F08A1E588662000976CD /* Categories */,
 				23A3530B1AF4491100D35C4D /* iNewt Includes */,
 				235E4CBE1AF3B29800BB5D82 /* Newton Connectivity */,
 				235E4C8E1AF3AC5300BB5D82 /* NewtonInspector */,
@@ -179,6 +183,15 @@
 				237B3BC91AFE4FC300830810 /* NewtonInspector.m */,
 			);
 			name = "Newton Connectivity";
+			sourceTree = "<group>";
+		};
+		2373F08A1E588662000976CD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2373F08B1E588675000976CD /* NSFileManager+DirectoryLocations.m */,
+				2373F08C1E588675000976CD /* NSFileManager+DirectoryLocations.h */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		23A3530B1AF4491100D35C4D /* iNewt Includes */ = {
@@ -289,7 +302,7 @@
 		235E4C841AF3AC5300BB5D82 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = allaboutjake;
 				TargetAttributes = {
 					235E4C8B1AF3AC5300BB5D82 = {
@@ -342,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				235E4C951AF3AC5300BB5D82 /* main.m in Sources */,
+				2373F08D1E588675000976CD /* NSFileManager+DirectoryLocations.m in Sources */,
 				235E4C931AF3AC5300BB5D82 /* AppDelegate.m in Sources */,
 				237B3BCC1AFE4FC300830810 /* NewtonInspector.m in Sources */,
 				237B3BCB1AFE4FC300830810 /* NewtonConnection.m in Sources */,
@@ -369,7 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ANALYZER_OBJC_RETAIN_COUNT = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -380,14 +394,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -414,7 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ANALYZER_OBJC_RETAIN_COUNT = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -425,8 +442,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -451,7 +470,6 @@
 		235E4CAD1AF3AC5300BB5D82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -462,6 +480,7 @@
 					"$(PROJECT_DIR)/NewtonInspector",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allaboutjake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 x86_64";
 			};
@@ -470,7 +489,6 @@
 		235E4CAE1AF3AC5300BB5D82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -481,6 +499,7 @@
 					"$(PROJECT_DIR)/NewtonInspector",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allaboutjake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 x86_64";
 			};

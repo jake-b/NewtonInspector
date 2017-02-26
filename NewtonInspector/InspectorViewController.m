@@ -38,6 +38,10 @@
     if (self.font) {
         self.inputTextView.font = self.font;
         self.outputTextView.font = self.font;
+        
+        self.inputTextView.automaticQuoteSubstitutionEnabled = NO;
+        self.inputTextView.automaticDashSubstitutionEnabled = NO;
+        self.inputTextView.automaticTextReplacementEnabled = NO;
     }
 }
 
@@ -66,11 +70,21 @@
 
 - (IBAction)connectInspector:(id)sender {
     if (!self.inspector) {
-        self.inspector = [NewtonInspector inspectorWithDevicePath:@"/dev/tty.usbserial" speed:38400];
+        if (1) {
+            NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/dev" error:nil];
+            NSArray *serialDevices = [files filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] 'cu.usbserial'"]];
+            if ([serialDevices firstObject]) {
+                NSString* device = [@"/dev" stringByAppendingPathComponent:[serialDevices firstObject]];
+                NSLog(@"opening %@",device);
+                self.inspector = [NewtonInspector inspectorWithDevicePath:device speed:38400];
+            }
+        } else {
+            self.inspector = [NewtonInspector inspectorWithEinsteinNamedPipes];
+        }
         self.inspector.delegate = self;
     } else {
+        NSLog(@"Disconnecting Inspector");        
         [self.inspector disconnect];
-        self.inspector = nil;
     }
 }
 
@@ -85,6 +99,8 @@
 }
 
 - (IBAction)inspectorDisconnected {
+    self.inspector = nil;
+    
     for (NSToolbarItem* item in  self.view.window.toolbar.items) {
         if ([item.itemIdentifier isEqualToString:@"connect"]) {
             [item setImage:[NSImage imageNamed:@"box_closed.png"]];

@@ -52,6 +52,7 @@
 @property (retain, nonatomic) NewtonConnection* serial;
 
 + (NewtonInspector*)inspectorWithDevicePath:(NSString*)devicePath speed:(int)speed;
++ (NewtonInspector*)inspectorWithEinsteinNamedPipes;
 
 // Sends a package to the newton.  Will delete an exisitng pacakge with the same signature
 - (void) installPackage:(NSURL*)fileURL;

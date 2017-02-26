@@ -30,7 +30,7 @@
 	unsigned char frameStart[3];
 	unsigned char frameEnd[2];
 	unsigned char ldFrame[5]; 
-	int newtFD;
+	int txfd, rxfd;
 	struct termios newtTTY;
 	BOOL canceled;
     TPCircularBuffer inBuffer;
@@ -42,6 +42,7 @@
 
 
 + (NewtonConnection*)connectionWithDevicePath:(NSString*)devicePath speed:(int)speed;
++ (NewtonConnection*)connectionWithEinsteinNamedPipes;
 
 - (void)cancel;
 - (void)disconnect;

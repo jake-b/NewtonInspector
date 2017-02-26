@@ -29,6 +29,7 @@
 @interface NewtonInspector (Private)
 
 - (id)initWithDevicePath:(NSString*)devicePath speed:(int)speed;
+- (id)initWithEinsteinNamedPipes;
 - (void)sendTextToDelegate:(NSString*)text withColor:(NSColor*)color;
 
 @end
@@ -40,6 +41,10 @@
 
 + (NewtonInspector*)inspectorWithDevicePath:(NSString*)devicePath speed:(int)speed {
     return [[[NewtonInspector alloc] initWithDevicePath:devicePath speed:speed] autorelease];
+}
+
++ (NewtonInspector*)inspectorWithEinsteinNamedPipes {
+    return [[[NewtonInspector alloc] initWithEinsteinNamedPipes] autorelease];
 }
 
 
@@ -72,7 +77,26 @@
     return self;
 }
 
+- (id)initWithEinsteinNamedPipes {
+    if (self = [super init]) {
+        NSLog(@"initializing Einstein connection");
+        self.serial = [NewtonConnection connectionWithEinsteinNamedPipes];
+        
+        connected = NO;
+        
+        commsQueue = dispatch_queue_create("com.allaboutjake.NewtonInspector", NULL);
+        dispatch_async(commsQueue, ^{
+            [self.serial beginStream];
+            [self doInput:nil];
+        });
+        
+    }
+    return self;
+}
+
+
 - (void)disconnect {
+    [self.serial cancel];
     dispatch_async(commsQueue, ^{
         // If in 3 seconds the 'term' command hasn't resulted in a disconnect,
         // then force the disconnect from our side.  (Likley the inspector disconnected
@@ -145,6 +169,8 @@
         command = CFSwapInt32BigToHost(command);
         [self.serial receiveBytes:(unsigned char*)&length ofLength:4];
         length = CFSwapInt32BigToHost(length);
+        
+        NSLog(@"Receivng object of length %d", length);
         
         // Get the payload
         NSMutableData* payload = nil;

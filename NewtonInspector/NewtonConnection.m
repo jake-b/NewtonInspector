@@ -20,10 +20,12 @@
 
 #import <Foundation/Foundation.h>
 #import "NewtonConnection.h"
+#import "NSFileManager+DirectoryLocations.h"
 
 @interface NewtonConnection (Private)
 
 - (id)initWithDevicePath:(NSString*)devicePath speed:(int)speed;
+- (id)initWithEinsteinNamedPipes;
 - (void)calculateFCSWithWords:(unsigned short*)fcsWord octet:(unsigned char)octet;
 
 - (BOOL)sendFrame:(unsigned char*)info header:(unsigned char*)head length:(int)infoLen;
@@ -31,6 +33,7 @@
 - (void)sendLTFrame:(unsigned char*)info length:(int)infoLen seqNo:(unsigned char)seqNo;
 - (int)waitForLAFrame:(unsigned char)seqNo;
 - (int)waitForLDFrame;
+- (void)close;
 
 @end
 
@@ -42,41 +45,76 @@
 	return [[[NewtonConnection alloc] initWithDevicePath:devicePath speed:speed] autorelease];
 }
 
++ (NewtonConnection*)connectionWithEinsteinNamedPipes
+{
+    return [[[NewtonConnection alloc] initWithEinsteinNamedPipes] autorelease];
+}
+
+- (id)init {
+    if ( (self = [super init]) )
+    {
+        canceled = NO;
+        
+        // Initialize re-usable frame structures
+        
+        frameStart[0] = '\x16';
+        frameStart[1] = '\x10';
+        frameStart[2] = '\x02';
+        
+        frameEnd[0] = '\x10';
+        frameEnd[1] = '\x03';
+        
+        ldFrame[0] = '\x04';	// Length of header
+        ldFrame[1] = '\x02',	// Type indication LD frame
+        ldFrame[2] = '\x01';
+        ldFrame[3] = '\x01';
+        ldFrame[4] = '\xff';
+    }
+    return self;
+}
+
+- (id)initWithEinsteinNamedPipes {
+    if ( (self = [self init]) ) {
+        NSString* einsteinAppSupportFolder = [[NSFileManager defaultManager] applicationSupportDirectoryWithPathComponent:@"Einstein Emulator"];
+        
+        // Note the reversed pipes.  Our send is Einstein's receive.
+        NSString* txPipeName = [einsteinAppSupportFolder stringByAppendingPathComponent:@"ExtrSerPortSend"];
+        NSString* rxPipeName = [einsteinAppSupportFolder stringByAppendingPathComponent:@"ExtrSerPortRecv"];
+        
+        if ((rxfd = open([txPipeName fileSystemRepresentation], O_RDWR)) == -1) {
+            NSLog(@"Unable to open receive pipe: %@", rxPipeName);
+            return nil;
+        }
+
+        if ((txfd = open([rxPipeName fileSystemRepresentation], O_RDWR)) == -1) {
+            NSLog(@"Unable to open transmit pipe: %@", txPipeName);
+            return nil;
+        }
+        
+        // Create the circular buffer
+        TPCircularBufferInit(&inBuffer, 512);
+        
+        // Set connection status
+        connected = YES;
+    }
+    return self;
+}
 
 - (id)initWithDevicePath:(NSString*)devicePath speed:(int)speed
 {
-	if ( (self = [super init]) )
+	if ( (self = [self init]) )
 	{
-		canceled = NO;
-		
-		// Initialize re-usable frame structures
-		
-		frameStart[0] = '\x16';
-		frameStart[1] = '\x10';
-		frameStart[2] = '\x02';
-		
-		frameEnd[0] = '\x10';
-		frameEnd[1] = '\x03';
-
-		ldFrame[0] = '\x04';	// Length of header 
-		ldFrame[1] = '\x02',	// Type indication LD frame 
-		ldFrame[2] = '\x01';
-		ldFrame[3] = '\x01';
-		ldFrame[4] = '\xff';
-
+        int newtFD = -1;
 		// Open the serial port
-		
-		if ( (newtFD = open([devicePath fileSystemRepresentation], O_RDWR)) == -1 )
-		{
+        if ( (newtFD = open([devicePath fileSystemRepresentation], O_RDWR)) == -1 ) {
+            NSLog(@"Error while opening port: %d", errno);
 			return nil;
 		}
 		
 		// Get the current device settings 
-		
 		tcgetattr(newtFD, &newtTTY);
 		
 		// Change the device settings 
-		
 		newtTTY.c_iflag = IGNBRK | INPCK;
 		newtTTY.c_oflag = 0;
 		newtTTY.c_cflag = (CREAD | CLOCAL | CS8) & ~PARENB & ~PARODD & ~CSTOPB;
@@ -148,19 +186,33 @@
         
         // Set connection status
         connected = YES;
+        
+        txfd = rxfd = newtFD;
 	}
 	
 	return self;
 }
 
 
+- (void)close {
+    // Close the serial port
+    bool singleFileDescriptor = (txfd >= 0 && txfd == rxfd);
+    
+    if ( txfd >= 0 ) {
+        close(txfd);
+        txfd = -1;
+    }
+    
+    if ( !singleFileDescriptor && rxfd >= 0 ) {
+        close(rxfd);
+        rxfd = -1;
+    }
+}
+
 - (void)dealloc
 {
-	// Close the serial port
-	
-	if ( newtFD >= 0 )
-		close(newtFD);
-	
+    [self close];
+    
     TPCircularBufferCleanup(&inBuffer);
     
     [super dealloc];
@@ -200,12 +252,12 @@
 {
     canceled = YES;
     
-	if ( newtFD >= 0 ) 
+	if ( txfd >= 0 )
 	{
 		// Wait for all buffer sent
-		tcdrain(newtFD);
+		tcdrain(txfd);
 		[self sendFrame:NULL header:ldFrame length:0];
-        close(newtFD);
+        [self close];
 	}
     connected = NO;
     
@@ -229,15 +281,21 @@
 	
 	while ( state < 3 ) 
 	{
-		FD_ZERO(&fds);
-		FD_SET(newtFD, &fds);
-
-		if ( select(newtFD + 1, &fds, NULL, NULL, &timeout) < 1 )
-			return 0;
-		
-		if ( read(newtFD, &buf, 1) < 0 )
+        if (canceled) return -1;
+        
+        FD_ZERO(&fds);
+		FD_SET(rxfd, &fds);
+        int maxfd = MAX(txfd, rxfd);
+        if ( select(maxfd+1, &fds, NULL, NULL, &timeout) < 1 ) {
+            NSLog(@"Waititng on select");
+            return 0;
+        }
+        
+        if ( read(rxfd, &buf, 1) < 0 ) {
+            NSLog(@"Error in reading from Newton device, connection stopped!!");
 			return -1; //ErrHandler(errMesg);
-
+        }
+        
 		switch ( state ) 
 		{
 			case 0 :
@@ -267,8 +325,10 @@
 	
 	while ( state < 2 ) 
 	{
-		if ( read(newtFD, &buf, 1) < 0 )
+        if ( read(rxfd, &buf, 1) < 0 ) {
+            NSLog(@"Error in reading from Newton device, connection stopped!!");
 			return -1; //ErrHandler(errMesg);
+        }
 			
 		switch ( state ) 
 		{
@@ -320,21 +380,30 @@
 		
 	// Check FCS 
 	
-	if ( read(newtFD, &buf, 1) < 0 )
+    if ( read(rxfd, &buf, 1) < 0 ) {
+        NSLog(@"Error in reading from Newton device, connection stopped!!");
 		return -1; //ErrHandler(errMesg);
+    }
 		
-	if ( fcsWord % 256 != buf )
+    if ( fcsWord % 256 != buf ) {
+        NSLog(@"Error in reading from Newton device, connection stopped!!");
 		return -1;
+    }
 
-	if ( read(newtFD, &buf, 1) < 0 )
+    if ( read(rxfd, &buf, 1) < 0 ) {
+        NSLog(@"Error in reading from Newton device, connection stopped!!");
 		return -1; //ErrHandler(errMesg);
+    }
 
-	if ( fcsWord / 256 != buf )
+    if ( fcsWord / 256 != buf ) {
+        NSLog(@"Error in reading from Newton device, connection stopped!!");
 		return -1;
+    }
 
-	if ( frame[1] == '\x02' )
+    if ( frame[1] == '\x02' ) {
+        NSLog(@"Error in reading from Newton device, connection stopped!!");
 		return -1;//ErrHandler("Newton device disconnected, connection stopped!!");
-		
+    }
 	return i;
 }
 
@@ -348,21 +417,22 @@
 	
 	// Send frame start 
 
-	if ( write(newtFD, frameStart, 3) < 0 )
-		return NO;
-	
+    if ( write(txfd, frameStart, 3) < 0 ) {
+        NSLog(@"Error in writing to Newton device, connection stopped!!");
+        return NO;
+    }
 	// Send frame head 
 	
 	for ( i = 0; i <= head[0]; i++ ) 
 	{
 		[self calculateFCSWithWords:&fcsWord octet:head[i]];
 		
-		if ( write(newtFD, &head[i], 1) < 0 )
+		if ( write(txfd, &head[i], 1) < 0 )
 			return NO;
 			
 		if ( head[i] == frameEnd[0] ) 
 		{
-			if ( write(newtFD, &head[i], 1) < 0 )
+			if ( write(txfd, &head[i], 1) < 0 )
 				return NO;
 		}
 	}
@@ -375,12 +445,12 @@
 		{
 			[self calculateFCSWithWords:&fcsWord octet:info[i]];
 		
-			if ( write(newtFD, &info[i], 1) < 0 )
+			if ( write(txfd, &info[i], 1) < 0 )
 				return NO;
 			
 			if ( info[i] == frameEnd[0] ) 
 			{
-				if ( write(newtFD, &info[i], 1) < 0 )
+				if ( write(txfd, &info[i], 1) < 0 )
 					return NO;
 			}
 		}
@@ -388,7 +458,7 @@
 
 	// Send frame end 
 
-	if ( write(newtFD, frameEnd, 2) < 0 )
+	if ( write(txfd, frameEnd, 2) < 0 )
 		return NO;
 		
 	[self calculateFCSWithWords:&fcsWord octet:frameEnd[1]];
@@ -397,12 +467,12 @@
 	
 	buf = fcsWord % 256;
 	
-	if ( write(newtFD, &buf, 1) < 0 )
+	if ( write(txfd, &buf, 1) < 0 )
 		return NO;
 		
 	buf = fcsWord / 256;
 	
-	if ( write(newtFD, &buf, 1) < 0 )
+	if ( write(txfd, &buf, 1) < 0 )
 		return NO;
 		
 	return YES;
@@ -411,6 +481,7 @@
 
 - (void)sendLAFrame:(unsigned char)seqNo
 {
+    NSLog(@"SendLAFrame: %d", seqNo);
 	unsigned char laFrameHead[4] = 
 	{
 		'\x03', // Length of header 
@@ -479,7 +550,7 @@
 
 	while ( state < 5 )
 	{
-		if ( read(newtFD, &buf, 1) < 0 )
+		if ( read(rxfd, &buf, 1) < 0 )
 			return -1;//ErrHandler(errMesg);
 
 		switch ( state ) 
@@ -529,7 +600,7 @@
 
 	while ( state < 2 ) 
 	{
-		if ( read(newtFD, &buf, 1) < 0 )
+		if ( read(rxfd, &buf, 1) < 0 )
 			return -1;//ErrHandler(errMesg);
 
 		switch ( state ) 
@@ -563,13 +634,13 @@
 		
 	// Check FCS 
 
-	if ( read(newtFD, &buf, 1) < 0 )
+	if ( read(rxfd, &buf, 1) < 0 )
 		return -1;//ErrHandler(errMesg);
 
 	if ( fcsWord % 256 != buf )
 		return -1;
 
-	if ( read(newtFD, &buf, 1) < 0 )
+	if ( read(rxfd, &buf, 1) < 0 )
 		return -1; //ErrHandler(errMesg);
 
 	if ( fcsWord / 256 != buf )
@@ -579,6 +650,7 @@
 }
 
 - (int)bytesAvailable {
+    NSLog(@"bytesAvailable");
     int32_t availableBytes = 0;
     TPCircularBufferTail(&inBuffer, &availableBytes);
     
@@ -605,29 +677,34 @@
 }
 
 - (int)receiveBytes:(unsigned char*)frame ofLength:(int)length {
+    NSLog(@"receiveBytes");
     int remaining = length;
     unsigned char* pos = frame;
     while (remaining > 0) {
         int toRead = remaining > 256?256:remaining;
         
-        if ([self receiveBytes2:pos ofLength:toRead] != 0)
+        int bytesRead;
+        if ((bytesRead = [self receiveBytes2:pos ofLength:toRead]) < 0)
             return -1;
         
-        pos += toRead;
-        remaining -= toRead;
+        pos += bytesRead;
+        remaining -= bytesRead;
+        NSLog(@"Requested %d, Read %d: %d left of %d", toRead, bytesRead, remaining, length);
     }
     return 0;
 }
 
 - (int)receiveBytes2:(unsigned char*)frame ofLength:(int)length
 {
+    NSLog(@"receiveBytes");
     NSAssert(length<=256, @"recediveBytes2 only supports 256 byte packets");
     
     int32_t availableBytes = 0;
     unsigned char recvBuf[MAX_HEAD_LEN + MAX_INFO_LEN];
+    memset(recvBuf, 0, MAX_HEAD_LEN + MAX_INFO_LEN);
     
     TPCircularBufferTail(&inBuffer, &availableBytes);
-    
+    int retries = 10;
     while (availableBytes < length) {
         int recvBytes;
         
@@ -635,7 +712,8 @@
             return -1;
         
         // Wait for the response
-        while ( (recvBytes = [self receiveFrame:recvBuf]) < 0 || (recvBuf[1] != '\x04')) {
+        while ( (recvBytes = [self receiveFrame:recvBuf]) <= 0 || (recvBuf[1] != '\x04')) {
+            if (retries-- <= 0) return -1;
             if ( canceled )
                 return -1;
         }
@@ -651,7 +729,7 @@
     if (frame) memcpy(frame, tail, length);
     TPCircularBufferConsume(&inBuffer, length);
     
-    return 0;
+    return length;
 }
 
 - (int)sendBytes:(unsigned char*)bytes length:(int)length {
