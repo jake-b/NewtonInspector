@@ -70,16 +70,31 @@
 
 - (IBAction)connectInspector:(id)sender {
     if (!self.inspector) {
-        if (1) {
-            NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/dev" error:nil];
-            NSArray *serialDevices = [files filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] 'cu.usbserial'"]];
-            if ([serialDevices firstObject]) {
-                NSString* device = [@"/dev" stringByAppendingPathComponent:[serialDevices firstObject]];
-                NSLog(@"opening %@",device);
-                self.inspector = [NewtonInspector inspectorWithDevicePath:device speed:38400];
-            }
-        } else {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSString* mode = [defaults objectForKey:@"mode"];
+
+        if ([mode isEqualToString:@"pipe"]) {
             self.inspector = [NewtonInspector inspectorWithEinsteinNamedPipes];
+        } else {
+            NSString* device = nil;
+            if (mode == nil || [mode isEqualToString:@"auto"]) {
+                NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/dev" error:nil];
+                NSArray *serialDevices = [files filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] 'cu.usbserial'"]];
+                if ([serialDevices firstObject]) {
+                    device = [@"/dev" stringByAppendingPathComponent:[serialDevices firstObject]];
+                }
+            } else if ([mode isEqualToString:@"dev"]) {
+                device = [defaults objectForKey:@"device"];
+            }
+            
+            if (device) {
+                self.inspector = [NewtonInspector inspectorWithDevicePath:device speed:38400];
+            } else {
+                NSAlert* a = [[NSAlert alloc] init];
+                a.messageText = @"Unable to find a device to open.";
+                [a addButtonWithTitle:@"OK"];
+                [a runModal];
+            }
         }
         self.inspector.delegate = self;
     } else {

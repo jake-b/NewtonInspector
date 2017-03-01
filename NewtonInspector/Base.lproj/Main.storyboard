@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="rMb-Kb-SuK" kind="show" id="t8a-8L-8Za"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -528,6 +532,80 @@
                 <customObject id="CMl-xc-8aI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="706"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="HDx-XM-V34">
+            <objects>
+                <viewController id="rMb-Kb-SuK" customClass="PreferencesViewController" sceneMemberID="viewController">
+                    <view key="view" id="c3b-uS-ebe">
+                        <rect key="frame" x="0.0" y="0.0" width="504" height="178"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button identifier="auto" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTC-1e-0FK">
+                                <rect key="frame" x="40" y="126" width="412" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="radio" title="Automatically select the first device matching /dev/cu.usbserial*" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="wbv-3O-bLz">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonChanged:" target="rMb-Kb-SuK" id="g2b-46-Fry"/>
+                                </connections>
+                            </button>
+                            <button identifier="pipe" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDs-Lo-faG">
+                                <rect key="frame" x="40" y="96" width="154" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="radio" title="Einstein Named Pipes" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="wbF-2P-cRn">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonChanged:" target="rMb-Kb-SuK" id="C6O-gI-Nfy"/>
+                                </connections>
+                            </button>
+                            <button identifier="dev" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPk-pX-kcq">
+                                <rect key="frame" x="40" y="67" width="115" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="radio" title="Specific device" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ESi-9L-YV3">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonChanged:" target="rMb-Kb-SuK" id="624-0D-BaZ"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-FX-CzG">
+                                <rect key="frame" x="161" y="65" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="8iI-3g-y0K">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4x-Hz-l5y">
+                                <rect key="frame" x="223" y="13" width="59" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SgH-Mo-XSt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="rMb-Kb-SuK" id="woG-Ez-ezq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="deviceTextField" destination="fZ7-FX-CzG" id="2Zb-k3-fkQ"/>
+                    </connections>
+                </viewController>
+                <customObject id="qMp-Pf-ZXL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="1085"/>
         </scene>
     </scenes>
     <resources>

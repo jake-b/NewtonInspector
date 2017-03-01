@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C976B2281E662B3C0037B6B2 /* newt.y in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0C05798559009742A2 /* newt.y */; };
+		C976B2291E662B3C0037B6B2 /* newt.l in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0B05798559009742A2 /* newt.l */; };
+		C976B22A1E662B3C0037B6B2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F5E14ADA057984FA009742A2 /* main.c */; };
+		C976B22B1E662B3C0037B6B2 /* lookup_words.c in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0905798559009742A2 /* lookup_words.c */; };
+		C976B22C1E662B3C0037B6B2 /* NewtBC.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06106412D4900DB6CF9 /* NewtBC.c */; };
+		C976B22D1E662B3C0037B6B2 /* NewtEnv.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06206412D4900DB6CF9 /* NewtEnv.c */; };
+		C976B22E1E662B3C0037B6B2 /* NewtFile.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06306412D4900DB6CF9 /* NewtFile.c */; };
+		C976B22F1E662B3C0037B6B2 /* NewtFns.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06406412D4900DB6CF9 /* NewtFns.c */; };
+		C976B2301E662B3C0037B6B2 /* NewtGC.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06506412D4900DB6CF9 /* NewtGC.c */; };
+		C976B2311E662B3C0037B6B2 /* NewtMem.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06606412D4900DB6CF9 /* NewtMem.c */; };
+		C976B2321E662B3C0037B6B2 /* NewtObj.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06706412D4900DB6CF9 /* NewtObj.c */; };
+		C976B2331E662B3C0037B6B2 /* NewtParser.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06806412D4900DB6CF9 /* NewtParser.c */; };
+		C976B2341E662B3C0037B6B2 /* NewtStr.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06906412D4900DB6CF9 /* NewtStr.c */; };
+		C976B2351E662B3C0037B6B2 /* NewtVM.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06A06412D4900DB6CF9 /* NewtVM.c */; };
+		C976B2361E662B3C0037B6B2 /* NewtIO.c in Sources */ = {isa = PBXBuildFile; fileRef = F53BCC6C0670CDBD0013103E /* NewtIO.c */; };
+		C976B2371E662B3C0037B6B2 /* NewtPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = F55860F307E09F5F0080D223 /* NewtPrint.c */; };
+		C976B2381E662B3C0037B6B2 /* NewtNSOF.c in Sources */ = {isa = PBXBuildFile; fileRef = F57E7A1307FD365100256511 /* NewtNSOF.c */; };
+		C976B2391E662B3C0037B6B2 /* endian_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = F503AC6A0851DFD9009BA497 /* endian_utils.c */; };
+		C976B23A1E662B3C0037B6B2 /* NewtIconv.c in Sources */ = {isa = PBXBuildFile; fileRef = F554741C088A750B001E9DDF /* NewtIconv.c */; };
+		C976B23B1E662B3C0037B6B2 /* NewtPkg.c in Sources */ = {isa = PBXBuildFile; fileRef = F55F06880BBC1D05005849A9 /* NewtPkg.c */; };
+		C976B23F1E662B3C0037B6B2 /* NewtConf.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5A713750BB5028D00F8DB93 /* NewtConf.h */; };
+		C976B2401E662B3C0037B6B2 /* NewtPkg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55F06860BBC1CE7005849A9 /* NewtPkg.h */; };
+		F503AC6C0851DFD9009BA497 /* endian_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = F503AC6A0851DFD9009BA497 /* endian_utils.c */; };
+		F53BCC6D0670CDBD0013103E /* NewtIO.c in Sources */ = {isa = PBXBuildFile; fileRef = F53BCC6C0670CDBD0013103E /* NewtIO.c */; };
+		F541305E096D1EBC00CFD896 /* newt.y in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0C05798559009742A2 /* newt.y */; };
+		F554741D088A750B001E9DDF /* NewtIconv.c in Sources */ = {isa = PBXBuildFile; fileRef = F554741C088A750B001E9DDF /* NewtIconv.c */; };
+		F55860F407E09F5F0080D223 /* NewtPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = F55860F307E09F5F0080D223 /* NewtPrint.c */; };
+		F55F06870BBC1CE7005849A9 /* NewtPkg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55F06860BBC1CE7005849A9 /* NewtPkg.h */; };
+		F55F06890BBC1D05005849A9 /* NewtPkg.c in Sources */ = {isa = PBXBuildFile; fileRef = F55F06880BBC1D05005849A9 /* NewtPkg.c */; };
+		F57E7A1407FD365100256511 /* NewtNSOF.c in Sources */ = {isa = PBXBuildFile; fileRef = F57E7A1307FD365100256511 /* NewtNSOF.c */; };
+		F5A713760BB5028D00F8DB93 /* NewtConf.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5A713750BB5028D00F8DB93 /* NewtConf.h */; };
+		F5ACB07906412D4900DB6CF9 /* NewtBC.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06106412D4900DB6CF9 /* NewtBC.c */; };
+		F5ACB07A06412D4900DB6CF9 /* NewtEnv.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06206412D4900DB6CF9 /* NewtEnv.c */; };
+		F5ACB07B06412D4900DB6CF9 /* NewtFile.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06306412D4900DB6CF9 /* NewtFile.c */; };
+		F5ACB07C06412D4900DB6CF9 /* NewtFns.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06406412D4900DB6CF9 /* NewtFns.c */; };
+		F5ACB07D06412D4900DB6CF9 /* NewtGC.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06506412D4900DB6CF9 /* NewtGC.c */; };
+		F5ACB07E06412D4900DB6CF9 /* NewtMem.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06606412D4900DB6CF9 /* NewtMem.c */; };
+		F5ACB07F06412D4900DB6CF9 /* NewtObj.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06706412D4900DB6CF9 /* NewtObj.c */; };
+		F5ACB08006412D4900DB6CF9 /* NewtParser.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06806412D4900DB6CF9 /* NewtParser.c */; };
+		F5ACB08106412D4900DB6CF9 /* NewtStr.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06906412D4900DB6CF9 /* NewtStr.c */; };
+		F5ACB08206412D4900DB6CF9 /* NewtVM.c in Sources */ = {isa = PBXBuildFile; fileRef = F5ACB06A06412D4900DB6CF9 /* NewtVM.c */; };
+		F5E14ADC057984FA009742A2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F5E14ADA057984FA009742A2 /* main.c */; };
+		F5E14B140579859B009742A2 /* lookup_words.c in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0905798559009742A2 /* lookup_words.c */; };
+		F5E14B170579859E009742A2 /* newt.l in Sources */ = {isa = PBXBuildFile; fileRef = F5E14B0B05798559009742A2 /* newt.l */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				F5A713760BB5028D00F8DB93 /* NewtConf.h in CopyFiles */,
+				F55F06870BBC1CE7005849A9 /* NewtPkg.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C976B23E1E662B3C0037B6B2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				C976B23F1E662B3C0037B6B2 /* NewtConf.h in CopyFiles */,
+				C976B2401E662B3C0037B6B2 /* NewtPkg.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DD76FB20486AB0100D96B5E /* newt */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newt; sourceTree = BUILT_PRODUCTS_DIR; };
+		C976B2441E662B3C0037B6B2 /* newt64 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newt64; sourceTree = BUILT_PRODUCTS_DIR; };
+		F503AC6A0851DFD9009BA497 /* endian_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = endian_utils.c; sourceTree = "<group>"; };
+		F503AC6B0851DFD9009BA497 /* endian_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = endian_utils.h; sourceTree = "<group>"; };
+		F52FA68B0594742F00087763 /* libl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libl.a; path = /usr/lib/libl.a; sourceTree = "<absolute>"; };
+		F53BCC6C0670CDBD0013103E /* NewtIO.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtIO.c; sourceTree = "<group>"; };
+		F53BCC700670CDF00013103E /* NewtIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtIO.h; sourceTree = "<group>"; };
+		F541CF5107D8582D0071DCE6 /* Newton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newton.h; sourceTree = "<group>"; };
+		F5547416088A7486001E9DDF /* NewtIconv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtIconv.h; sourceTree = "<group>"; };
+		F554741C088A750B001E9DDF /* NewtIconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtIconv.c; sourceTree = "<group>"; };
+		F55860F307E09F5F0080D223 /* NewtPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtPrint.c; sourceTree = "<group>"; };
+		F55860F907E09F800080D223 /* NewtPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtPrint.h; sourceTree = "<group>"; };
+		F55A5AF70726499E002A520F /* NewtLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtLib.h; sourceTree = "<group>"; };
+		F55F06860BBC1CE7005849A9 /* NewtPkg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtPkg.h; sourceTree = "<group>"; };
+		F55F06880BBC1D05005849A9 /* NewtPkg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtPkg.c; sourceTree = "<group>"; };
+		F5622ED907E0273B009AAF9A /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
+		F5622F2307E029FC009AAF9A /* NewtonMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtonMemory.h; sourceTree = "<group>"; };
+		F5622F2407E029FC009AAF9A /* NewtonExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtonExceptions.h; sourceTree = "<group>"; };
+		F57E7A0C07FD362400256511 /* NewtNSOF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtNSOF.h; sourceTree = "<group>"; };
+		F57E7A1307FD365100256511 /* NewtNSOF.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtNSOF.c; sourceTree = "<group>"; };
+		F5A713750BB5028D00F8DB93 /* NewtConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtConf.h; sourceTree = "<group>"; };
+		F5ACB05306412D4900DB6CF9 /* NewtBC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtBC.h; sourceTree = "<group>"; };
+		F5ACB05506412D4900DB6CF9 /* NewtCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtCore.h; sourceTree = "<group>"; };
+		F5ACB05606412D4900DB6CF9 /* NewtEnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtEnv.h; sourceTree = "<group>"; };
+		F5ACB05706412D4900DB6CF9 /* NewtErrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtErrs.h; sourceTree = "<group>"; };
+		F5ACB05806412D4900DB6CF9 /* NewtFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtFile.h; sourceTree = "<group>"; };
+		F5ACB05906412D4900DB6CF9 /* NewtFns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtFns.h; sourceTree = "<group>"; };
+		F5ACB05A06412D4900DB6CF9 /* NewtGC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtGC.h; sourceTree = "<group>"; };
+		F5ACB05B06412D4900DB6CF9 /* NewtMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtMem.h; sourceTree = "<group>"; };
+		F5ACB05C06412D4900DB6CF9 /* NewtObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtObj.h; sourceTree = "<group>"; };
+		F5ACB05D06412D4900DB6CF9 /* NewtParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtParser.h; sourceTree = "<group>"; };
+		F5ACB05E06412D4900DB6CF9 /* NewtStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtStr.h; sourceTree = "<group>"; };
+		F5ACB05F06412D4900DB6CF9 /* NewtType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtType.h; sourceTree = "<group>"; };
+		F5ACB06006412D4900DB6CF9 /* NewtVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtVM.h; sourceTree = "<group>"; };
+		F5ACB06106412D4900DB6CF9 /* NewtBC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtBC.c; sourceTree = "<group>"; };
+		F5ACB06206412D4900DB6CF9 /* NewtEnv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtEnv.c; sourceTree = "<group>"; };
+		F5ACB06306412D4900DB6CF9 /* NewtFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtFile.c; sourceTree = "<group>"; };
+		F5ACB06406412D4900DB6CF9 /* NewtFns.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtFns.c; sourceTree = "<group>"; };
+		F5ACB06506412D4900DB6CF9 /* NewtGC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtGC.c; sourceTree = "<group>"; };
+		F5ACB06606412D4900DB6CF9 /* NewtMem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtMem.c; sourceTree = "<group>"; };
+		F5ACB06706412D4900DB6CF9 /* NewtObj.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtObj.c; sourceTree = "<group>"; };
+		F5ACB06806412D4900DB6CF9 /* NewtParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtParser.c; sourceTree = "<group>"; };
+		F5ACB06906412D4900DB6CF9 /* NewtStr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtStr.c; sourceTree = "<group>"; };
+		F5ACB06A06412D4900DB6CF9 /* NewtVM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NewtVM.c; sourceTree = "<group>"; };
+		F5DE1345082AD4A500BB42A5 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		F5E14ADA057984FA009742A2 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		F5E14ADB057984FA009742A2 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		F5E14B0905798559009742A2 /* lookup_words.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lookup_words.c; sourceTree = "<group>"; };
+		F5E14B0A05798559009742A2 /* lookup_words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lookup_words.h; sourceTree = "<group>"; };
+		F5E14B0B05798559009742A2 /* newt.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = newt.l; sourceTree = "<group>"; };
+		F5E14B0C05798559009742A2 /* newt.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = newt.y; sourceTree = "<group>"; };
+		F5E14B0D05798559009742A2 /* yacc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yacc.h; sourceTree = "<group>"; };
+		F5F69C0107E8F36E0086BCEA /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C976B23C1E662B3C0037B6B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* newt */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Sources */,
+				F52FA68F0594745700087763 /* Frameworks */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = newt;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F503AC690851DFD9009BA497 /* utils */,
+				F5ACB05106412D4900DB6CF9 /* newt_core */,
+				F5E14B0805798559009742A2 /* parser */,
+				F5E14ADA057984FA009742A2 /* main.c */,
+				F5E14ADB057984FA009742A2 /* version.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FB20486AB0100D96B5E /* newt */,
+				C976B2441E662B3C0037B6B2 /* newt64 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F503AC690851DFD9009BA497 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F503AC6A0851DFD9009BA497 /* endian_utils.c */,
+				F503AC6B0851DFD9009BA497 /* endian_utils.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		F52FA68F0594745700087763 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F52FA68B0594742F00087763 /* libl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F541CF5007D8582D0071DCE6 /* Newton */ = {
+			isa = PBXGroup;
+			children = (
+				F541CF5107D8582D0071DCE6 /* Newton.h */,
+				F5622F2307E029FC009AAF9A /* NewtonMemory.h */,
+				F5622F2407E029FC009AAF9A /* NewtonExceptions.h */,
+				F5622ED907E0273B009AAF9A /* Objects.h */,
+			);
+			includeInIndex = 1;
+			path = Newton;
+			sourceTree = "<group>";
+		};
+		F5ACB05106412D4900DB6CF9 /* newt_core */ = {
+			isa = PBXGroup;
+			children = (
+				F5ACB05206412D4900DB6CF9 /* incs */,
+				F5ACB06106412D4900DB6CF9 /* NewtBC.c */,
+				F5ACB06206412D4900DB6CF9 /* NewtEnv.c */,
+				F5ACB06306412D4900DB6CF9 /* NewtFile.c */,
+				F5ACB06406412D4900DB6CF9 /* NewtFns.c */,
+				F5ACB06506412D4900DB6CF9 /* NewtGC.c */,
+				F554741C088A750B001E9DDF /* NewtIconv.c */,
+				F53BCC6C0670CDBD0013103E /* NewtIO.c */,
+				F5ACB06606412D4900DB6CF9 /* NewtMem.c */,
+				F57E7A1307FD365100256511 /* NewtNSOF.c */,
+				F55F06880BBC1D05005849A9 /* NewtPkg.c */,
+				F5ACB06706412D4900DB6CF9 /* NewtObj.c */,
+				F5ACB06806412D4900DB6CF9 /* NewtParser.c */,
+				F55860F307E09F5F0080D223 /* NewtPrint.c */,
+				F5ACB06906412D4900DB6CF9 /* NewtStr.c */,
+				F5ACB06A06412D4900DB6CF9 /* NewtVM.c */,
+			);
+			path = newt_core;
+			sourceTree = "<group>";
+		};
+		F5ACB05206412D4900DB6CF9 /* incs */ = {
+			isa = PBXGroup;
+			children = (
+				F5DE1344082AD4A500BB42A5 /* darwin */,
+				F5F69C0107E8F36E0086BCEA /* platform.h */,
+				F541CF5007D8582D0071DCE6 /* Newton */,
+				F5ACB05306412D4900DB6CF9 /* NewtBC.h */,
+				F5ACB05506412D4900DB6CF9 /* NewtCore.h */,
+				F5ACB05606412D4900DB6CF9 /* NewtEnv.h */,
+				F5ACB05706412D4900DB6CF9 /* NewtErrs.h */,
+				F5ACB05806412D4900DB6CF9 /* NewtFile.h */,
+				F5ACB05906412D4900DB6CF9 /* NewtFns.h */,
+				F5ACB05A06412D4900DB6CF9 /* NewtGC.h */,
+				F5547416088A7486001E9DDF /* NewtIconv.h */,
+				F53BCC700670CDF00013103E /* NewtIO.h */,
+				F55A5AF70726499E002A520F /* NewtLib.h */,
+				F5ACB05B06412D4900DB6CF9 /* NewtMem.h */,
+				F57E7A0C07FD362400256511 /* NewtNSOF.h */,
+				F55F06860BBC1CE7005849A9 /* NewtPkg.h */,
+				F5ACB05C06412D4900DB6CF9 /* NewtObj.h */,
+				F5ACB05D06412D4900DB6CF9 /* NewtParser.h */,
+				F55860F907E09F800080D223 /* NewtPrint.h */,
+				F5ACB05E06412D4900DB6CF9 /* NewtStr.h */,
+				F5ACB05F06412D4900DB6CF9 /* NewtType.h */,
+				F5ACB06006412D4900DB6CF9 /* NewtVM.h */,
+			);
+			path = incs;
+			sourceTree = "<group>";
+		};
+		F5DE1344082AD4A500BB42A5 /* darwin */ = {
+			isa = PBXGroup;
+			children = (
+				F5DE1345082AD4A500BB42A5 /* config.h */,
+				F5A713750BB5028D00F8DB93 /* NewtConf.h */,
+			);
+			path = darwin;
+			sourceTree = "<group>";
+		};
+		F5E14B0805798559009742A2 /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				F5E14B0905798559009742A2 /* lookup_words.c */,
+				F5E14B0A05798559009742A2 /* lookup_words.h */,
+				F5E14B0B05798559009742A2 /* newt.l */,
+				F5E14B0C05798559009742A2 /* newt.y */,
+				F5E14B0D05798559009742A2 /* yacc.h */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76FA90486AB0100D96B5E /* newt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5413027096D1DEB00CFD896 /* Build configuration list for PBXNativeTarget "newt" */;
+			buildPhases = (
+				8DD76FAB0486AB0100D96B5E /* Sources */,
+				8DD76FAD0486AB0100D96B5E /* Frameworks */,
+				8DD76FAE0486AB0100D96B5E /* Rez */,
+				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = newt;
+			productInstallPath = "$(HOME)/bin";
+			productName = newt;
+			productReference = 8DD76FB20486AB0100D96B5E /* newt */;
+			productType = "com.apple.product-type.tool";
+		};
+		C976B2261E662B3C0037B6B2 /* newt64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C976B2411E662B3C0037B6B2 /* Build configuration list for PBXNativeTarget "newt64" */;
+			buildPhases = (
+				C976B2271E662B3C0037B6B2 /* Sources */,
+				C976B23C1E662B3C0037B6B2 /* Frameworks */,
+				C976B23D1E662B3C0037B6B2 /* Rez */,
+				C976B23E1E662B3C0037B6B2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = newt64;
+			productInstallPath = "$(HOME)/bin";
+			productName = newt;
+			productReference = C976B2441E662B3C0037B6B2 /* newt64 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = F541302B096D1DEB00CFD896 /* Build configuration list for PBXProject "newt" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* newt */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76FA90486AB0100D96B5E /* newt */,
+				C976B2261E662B3C0037B6B2 /* newt64 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXRezBuildPhase section */
+		8DD76FAE0486AB0100D96B5E /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C976B23D1E662B3C0037B6B2 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76FAB0486AB0100D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F541305E096D1EBC00CFD896 /* newt.y in Sources */,
+				F5E14B170579859E009742A2 /* newt.l in Sources */,
+				F5E14ADC057984FA009742A2 /* main.c in Sources */,
+				F5E14B140579859B009742A2 /* lookup_words.c in Sources */,
+				F5ACB07906412D4900DB6CF9 /* NewtBC.c in Sources */,
+				F5ACB07A06412D4900DB6CF9 /* NewtEnv.c in Sources */,
+				F5ACB07B06412D4900DB6CF9 /* NewtFile.c in Sources */,
+				F5ACB07C06412D4900DB6CF9 /* NewtFns.c in Sources */,
+				F5ACB07D06412D4900DB6CF9 /* NewtGC.c in Sources */,
+				F5ACB07E06412D4900DB6CF9 /* NewtMem.c in Sources */,
+				F5ACB07F06412D4900DB6CF9 /* NewtObj.c in Sources */,
+				F5ACB08006412D4900DB6CF9 /* NewtParser.c in Sources */,
+				F5ACB08106412D4900DB6CF9 /* NewtStr.c in Sources */,
+				F5ACB08206412D4900DB6CF9 /* NewtVM.c in Sources */,
+				F53BCC6D0670CDBD0013103E /* NewtIO.c in Sources */,
+				F55860F407E09F5F0080D223 /* NewtPrint.c in Sources */,
+				F57E7A1407FD365100256511 /* NewtNSOF.c in Sources */,
+				F503AC6C0851DFD9009BA497 /* endian_utils.c in Sources */,
+				F554741D088A750B001E9DDF /* NewtIconv.c in Sources */,
+				F55F06890BBC1D05005849A9 /* NewtPkg.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C976B2271E662B3C0037B6B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C976B2281E662B3C0037B6B2 /* newt.y in Sources */,
+				C976B2291E662B3C0037B6B2 /* newt.l in Sources */,
+				C976B22A1E662B3C0037B6B2 /* main.c in Sources */,
+				C976B22B1E662B3C0037B6B2 /* lookup_words.c in Sources */,
+				C976B22C1E662B3C0037B6B2 /* NewtBC.c in Sources */,
+				C976B22D1E662B3C0037B6B2 /* NewtEnv.c in Sources */,
+				C976B22E1E662B3C0037B6B2 /* NewtFile.c in Sources */,
+				C976B22F1E662B3C0037B6B2 /* NewtFns.c in Sources */,
+				C976B2301E662B3C0037B6B2 /* NewtGC.c in Sources */,
+				C976B2311E662B3C0037B6B2 /* NewtMem.c in Sources */,
+				C976B2321E662B3C0037B6B2 /* NewtObj.c in Sources */,
+				C976B2331E662B3C0037B6B2 /* NewtParser.c in Sources */,
+				C976B2341E662B3C0037B6B2 /* NewtStr.c in Sources */,
+				C976B2351E662B3C0037B6B2 /* NewtVM.c in Sources */,
+				C976B2361E662B3C0037B6B2 /* NewtIO.c in Sources */,
+				C976B2371E662B3C0037B6B2 /* NewtPrint.c in Sources */,
+				C976B2381E662B3C0037B6B2 /* NewtNSOF.c in Sources */,
+				C976B2391E662B3C0037B6B2 /* endian_utils.c in Sources */,
+				C976B23A1E662B3C0037B6B2 /* NewtIconv.c in Sources */,
+				C976B23B1E662B3C0037B6B2 /* NewtPkg.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C976B2421E662B3C0037B6B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = DLOPEN_NO_WARN;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					.,
+					newt_core/incs,
+				);
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = STATIC;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-liconv";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REZ_EXECUTABLE = YES;
+				SDKROOT = macosx;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C976B2431E662B3C0037B6B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_PREPROCESSOR_DEFINITIONS = DLOPEN_NO_WARN;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					.,
+					newt_core/incs,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_LDFLAGS = "-liconv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F5413028096D1DEB00CFD896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = DLOPEN_NO_WARN;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					.,
+					newt_core/incs,
+				);
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = STATIC;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-liconv";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = newt;
+				REZ_EXECUTABLE = YES;
+				SDKROOT = macosx;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		F5413029096D1DEB00CFD896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PREPROCESSOR_DEFINITIONS = DLOPEN_NO_WARN;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					.,
+					newt_core/incs,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_LDFLAGS = "-liconv";
+				PRODUCT_NAME = newt;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F541302C096D1DEB00CFD896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_VERSION = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = macosx;
+				SDKROOT_i386 = macosx;
+			};
+			name = Debug;
+		};
+		F541302D096D1DEB00CFD896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = STATIC;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				REZ_EXECUTABLE = YES;
+				SDKROOT = macosx;
+				SDKROOT_i386 = macosx;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.3.9.sdk;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C976B2411E662B3C0037B6B2 /* Build configuration list for PBXNativeTarget "newt64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C976B2421E662B3C0037B6B2 /* Debug */,
+				C976B2431E662B3C0037B6B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5413027096D1DEB00CFD896 /* Build configuration list for PBXNativeTarget "newt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5413028096D1DEB00CFD896 /* Debug */,
+				F5413029096D1DEB00CFD896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F541302B096D1DEB00CFD896 /* Build configuration list for PBXProject "newt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F541302C096D1DEB00CFD896 /* Debug */,
+				F541302D096D1DEB00CFD896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
